@@ -1,7 +1,6 @@
 function DifficultyScreen()
 {
 	this.exerciseOptions = new Array();
-
 	this.exerciseOptions[0] = new ExerciseOption('I', new Vector2(20, 70));
 	this.exerciseOptions[1] = new ExerciseOption('V', new Vector2(160, 70));
 	this.exerciseOptions[2] = new ExerciseOption('Common', new Vector2(20, 130));
@@ -21,8 +20,7 @@ function DifficultyScreen()
 	this.buttons[0] = new StartButton(new Vector2(650, 130));
 	this.buttons[1] = new ReturnButton(new Vector2(650, 370));
 	
-	this.fade = false;
-	this.time = 0;
+	this.opacity = 0;
 	
 	this.mouseclick = DifficultyScreen.prototype.mouseclick.bind(this);
 }
@@ -44,30 +42,25 @@ DifficultyScreen.prototype.main = function()
 		
 	for (var i = 0; i < this.buttons.length; i++)
 		this.buttons[i].main();
-		
-	if (this.fade)
-		this.time = Math.max(this.time - 0.1, 0);
-	else
-		this.time = Math.min(this.time + 0.1, 1);
-	
-	
 }
 
 DifficultyScreen.prototype.draw = function(ctx)
 {
-	ctx.globalAlpha = this.time;
-
 	ctx.save();
+	
+	ctx.globalAlpha = this.opacity;
+
 	ctx.font='20px Arial';
 	ctx.textAlign = 'center';
 	ctx.fillText('Select Chord Exercises',120,50);
-	ctx.restore();
 	
 	for (var i = 0; i < this.exerciseOptions.length; i++)
 		this.exerciseOptions[i].draw(ctx);
 		
 	for (var i = 0; i < this.buttons.length; i++)
 		this.buttons[i].draw(ctx);
+		
+	ctx.restore();
 }
 
 DifficultyScreen.prototype.mouseclick = function()
@@ -112,9 +105,9 @@ ExerciseOption.prototype.draw = function(ctx)
 	ctx.textAlign = 'left';
 	
 	if (this.checked)
-		ctx.drawImage(checkboxCheckedImg, 0, 0);
+		ctx.drawImage(resource.difficultyScreen.img.checkboxChecked, 0, 0);
 	else
-		ctx.drawImage(checkboxImg, 0, 0);
+		ctx.drawImage(resource.difficultyScreen.img.checkbox, 0, 0);
 	
 	var text = this.text.split('\n')
 	for (var i = 0; i < text.length; i++)
@@ -148,7 +141,7 @@ StartButton.prototype.draw = function(ctx)
 	ctx.save();
 	
 	ctx.setTransform(1.5, 0, 0, 1.5, this.position.x - 80, this.position.y - 80);
-	ctx.drawImage(startButtonImg, 0, 0);
+	ctx.drawImage(resource.difficultyScreen.img.startButton, 0, 0);
 	
 	ctx.setTransform(1, 0, 0, 1, this.position.x, this.position.y);
 	ctx.font='34px Arial';
@@ -183,7 +176,7 @@ ReturnButton.prototype.draw = function(ctx)
 	ctx.save();
 	
 	ctx.setTransform(1.5, 0, 0, 1.5, this.position.x - 80, this.position.y - 80);
-	ctx.drawImage(returnButtonImg, 0, 0);
+	ctx.drawImage(resource.difficultyScreen.img.returnButton, 0, 0);
 	
 	ctx.setTransform(1, 0, 0, 1, this.position.x, this.position.y);
 	ctx.font='34px Arial';

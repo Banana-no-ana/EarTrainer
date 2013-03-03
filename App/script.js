@@ -7,21 +7,17 @@ var ctx = null;
 
 var loggedIn = false;
 
+var resource = null;
 
-
-
-var menuItemImg = null;
-var checkboxImg = null;
-var checkboxCheckedImg = null;
-var startButtonImg = null;
-var returnButtonImg = null;
-var largeScoreImg = null;
-var largeScoreDividerImg = null;
-
-var currentScreen = null;
 var startScreen = null;
 var difficultyScreen = null;
 var exerciseScreen = null;
+
+var nextScreen = null;
+var currentScreen = null;
+
+var transitionScreen = false;
+var transitionTime = 0;
 
 
 function initialize()
@@ -31,19 +27,12 @@ function initialize()
 	
 	document.addEventListener('mousemove', mouseUpdate);
 	
-	menuItemImg = loadImage("img/TitleMenuItem.png");
-	checkboxImg = loadImage("img/Checkbox.png");
-	checkboxCheckedImg = loadImage("img/CheckboxChecked.png");
-	startButtonImg = loadImage("img/StartExercises.png");
-	returnButtonImg = loadImage("img/ReturnToStart.png");
-	largeScoreImg = loadImage("img/ScoreLarge.png");
-	largeScoreDividerImg = loadImage("img/ScoreLargeDivider.png");
+	resource = new ResourceManager();
 	
 	startScreen = new StartScreen();
 	difficultyScreen = new DifficultyScreen();
 	exerciseScreen = new ExerciseScreen();
-	currentScreen = startScreen;
-	currentScreen.enable();
+	changeScreen(startScreen);
 	
 	var raf = window.requestAnimationFrame
 	       || window.webkitRequestAnimationFrame
@@ -61,12 +50,38 @@ function frameRequest()
 	main()
 	draw();
 	
-	requestAnimationFrame(frameRequest);
+	window.requestAnimationFrame(frameRequest);
 }
 
 function main()
 {
 	currentScreen.main();
+	
+	if (transitionScreen)
+	{
+		if (nextScreen != null)
+			currentScreen.opacity = 1 - transitionTime;
+		else
+			currentScreen.opacity = transitionTime;
+		
+		if (transitionTime >= 1)
+		{
+			if (nextScreen != null)
+			{
+				transitionTime = 0;
+				currentScreen = nextScreen;
+				nextScreen = null;
+			}
+			else
+			{
+				transitionTime = 0;
+				transitionScreen = false;
+				currentScreen.enable();
+			}
+		}
+		
+		transitionTime += 0.1;
+	}
 }
 
 function draw()
@@ -74,6 +89,10 @@ function draw()
 	console.log('drawing...');
 	
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	
+	ctx.setTransform(50, 0, 0, 1, 0, 0);
+	ctx.drawImage(resource.general.img.background, 0, 0);
+	ctx.setTransform(1, 0, 0, 1, 0, 0);
 	
 	currentScreen.draw(ctx);
 
@@ -83,33 +102,32 @@ function draw()
 	ctx.fillText(mousePos.x + ',' + mousePos.y, 0, 484);
 }
 
+
 function mouseUpdate(evt)
 {
 	rect = canvas.getBoundingClientRect();
 	mousePos = { x:evt.clientX - rect.left, y:evt.clientY - rect.top };
 }
 
-function loadImage(uri)
+function changeScreen(newScreen)
 {
-    var img = new Image();
-    img.onload = imageLoaded;
-    img.src = uri;
-    return img;
+	transitionScreen = true;
+	
+	if (newScreen == null)
+		newScreen = startScreen;
+	
+	if (currentScreen != null)
+	{
+		currentScreen.disable();
+		nextScreen = newScreen;
+	}
+	else
+	{
+		currentScreen = newScreen;
+	}
 }
 
-function loadAudio(uri)
-{
-    var audio = new Audio();
-    audio.oncanplaythrough = audioLoaded;
-    audio.src = uri;
-    return audio;
-}
 
-function imageLoaded()
-{
-
-
-}
 
 function myRequestAnimationFrame(callback)
 {
