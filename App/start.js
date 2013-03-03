@@ -63,6 +63,7 @@ StartScreen.prototype.mouseclick = function()
 {
 	for (var i = 0; i < 6; i++)
 	{
+            //Determining which item item it hit, and goto that screen.
 		if (this.menuItems[i].hitTest(mousePos))
 		{
 			this.fadeOut = true;
@@ -87,6 +88,7 @@ function MenuItem(text, position)
 
 }
 
+//Hit test determines whether or not the mouse hit the box
 MenuItem.prototype.hitTest = function(point)
 {
 	var localPoint = Vector2.subtract(point, this.position);

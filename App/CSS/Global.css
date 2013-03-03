@@ -1,0 +1,27 @@
+/* 
+    Document   : Global
+    Created on : Mar 3, 2013, 2:21:39 AM
+    Author     : Dan
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+/* Enclosure screen for the App. */
+.screenEnclosure {
+    width: 800px;
+    height: 600px;
+    border: 2px solid #CCC;
+    
+}
+
+.color1 { color: #A8E430}
+.color2 { color: #609C00}
+.color3 { color: #FC6C00}
+.color4 { color: #FCFCA8}
+.color5 { color: #FCA860}
+.color6 { color: #483000}
+.color7 { color: #84C090}
