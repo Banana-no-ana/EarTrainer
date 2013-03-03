@@ -2,6 +2,9 @@ function Vector2(x, y)
 {
 	this.x = x;
 	this.y = y;
+	
+	if (y == null)
+		this.y = x;
 }
 
 Vector2.add = function(v1, v2)

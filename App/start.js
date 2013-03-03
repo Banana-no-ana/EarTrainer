@@ -1,3 +1,5 @@
+
+
 function StartScreen()
 {
 	this.menuItems = new Array();
@@ -9,10 +11,7 @@ function StartScreen()
 	this.menuItems[4] = new MenuItem("Options", new Vector2(70, 330));
 	this.menuItems[5] = new MenuItem("Log Out", new Vector2(85, 400));
 	
-	this.fadeOut = false;
-	this.time = 0;
-	
-	this.nextScreen = null;
+	this.opacity = 0;
 	
 	this.mouseclick = StartScreen.prototype.mouseclick.bind(this);
 }
@@ -31,32 +30,22 @@ StartScreen.prototype.main = function()
 {
 	for (var i = 0; i < 6; i++)
 		this.menuItems[i].main();
-		
-	if (this.fadeOut)
-		this.time = Math.max(this.time - 0.1, 0);
-	else
-		this.time = Math.min(this.time + 0.1, 1);
-	
-	if (this.nextScreen != null && this.time == 0)
-	{
-		currentScreen = this.nextScreen;
-		currentScreen.enable();
-	}
 }
 
 StartScreen.prototype.draw = function(ctx)
 {
-	ctx.globalAlpha = this.time;
-
 	ctx.save();
+	
+	ctx.globalAlpha = this.opacity;
 	ctx.font='40px Arial';
 	ctx.textAlign = 'center';
 	ctx.fillText('Ear Training App',600,200);
 	ctx.fillText('(Prototype)',600,300);
-	ctx.restore();
 	
 	for (var i = 0; i < 6; i++)
 		this.menuItems[i].draw(ctx);
+		
+	ctx.restore();
 }
 
 StartScreen.prototype.mouseclick = function()
@@ -65,13 +54,10 @@ StartScreen.prototype.mouseclick = function()
 	{
 		if (this.menuItems[i].hitTest(mousePos))
 		{
-			this.fadeOut = true;
-			this.disable();
-			
 			if (i == 0)
-				this.nextScreen = exerciseScreen;
+				changeScreen(exerciseScreen);
 			else if (i == 1)
-				this.nextScreen = difficultyScreen;
+				changeScreen(difficultyScreen);
 		}
 		
 	}
@@ -109,9 +95,10 @@ MenuItem.prototype.draw = function(ctx)
 {
 	ctx.save();
 	ctx.setTransform(this.scale, 0, 0, this.scale, this.position.x, this.position.y);
+	ctx.globalCompositeOperation = 'lighter';
 	ctx.font='30px Arial';
 	ctx.textAlign = 'center';
-	ctx.drawImage(menuItemImg, 0, 0);
+	ctx.drawImage(resource.startScreen.img.menuItem, 0, 0);
 	ctx.fillText(this.text, 150, 50);
 	ctx.restore();
 }
