@@ -50,3 +50,16 @@ root {
    left:+68px;
 }
 
+#welcomeUser {
+    
+    background-image: url(../img/mainMenu/WelcomeBackground.png);
+    top:3px;
+    text-align: right;
+    background-position: right;
+    background-repeat:no-repeat;
+    
+    
+    
+        
+    
+}
