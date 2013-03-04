@@ -151,20 +151,20 @@ var raf = window.requestAnimationFrame
 	   
 window.requestAnimationFrame = raf;
 
-for (var i = 1; i <= 24; i++)
-	new ChordInput(document.getElementById('chordInput' + i));
-
 $(document).ready(function(){
 	$(document).mousemove(document_mousemove);
 	$(document).mousedown(document_mousedown);
 	$(document).mouseup(document_mouseup);
    
 	window.requestAnimationFrame(frameRequest);
+	
+	for (var i = 1; i <= 24; i++)
+		new ChordInput(document.getElementById('chordInput' + i));
         
-        $('.result').hover(function() {
-            alert('Once the user changes the Roman Numerals, the dial changes to indicate whether user is correct or not, and auto continues to the section if they are');
-          
-         }, function() {
-           $(this).attr('title', '');
-         });
+	$('.result').hover(function() {
+		alert('Once the user changes the Roman Numerals, the dial changes to indicate whether user is correct or not, and auto continues to the next section if they are');
+	  
+	 }, function() {
+	   $(this).attr('title', '');
+	 });
 });
