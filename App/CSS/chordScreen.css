@@ -1,0 +1,22 @@
+/* 
+    Document   : chordScreen
+    Created on : Mar 4, 2013, 2:20:59 AM
+    Author     : Dan
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#clearBorder {
+    width: 800px;
+    height:600px;
+    border:solid #EFEFEF;
+    
+}
+#content {
+    width:800px;
+    height:600px;
+}

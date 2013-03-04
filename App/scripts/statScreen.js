@@ -8,5 +8,7 @@
    $('#tabs-left').tabs();
   });
   
-  
+   $('#backButton').click(function() {
+             window.location = 'index.html';
+   })
  });
