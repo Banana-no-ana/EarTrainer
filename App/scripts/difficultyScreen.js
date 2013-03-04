@@ -1,5 +1,4 @@
-$(document).ready(function() {
-    function checkHandler(chk)
+function checkHandler(chk)
 {
 	if (chk.checked)
 	{
@@ -12,4 +11,3 @@ $(document).ready(function() {
 		$(chk).next().addClass("checkbox");
 	}
 }
-});

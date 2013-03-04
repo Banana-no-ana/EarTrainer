@@ -107,6 +107,16 @@
 	height:1260px;	
 }
 
+.sampleChord
+{
+	background-image:url(../img/exerciseScreen/LargeScoreWithoutNotes.png);
+	
+	position:absolute;
+	top:0px;
+	width:60px;
+	height:244px;
+}
+
 
 
 .menuButton
