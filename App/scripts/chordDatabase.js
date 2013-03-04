@@ -18,5 +18,10 @@ $('#tabs-content').addClass('js');
                     $(tabContent).siblings().css('display','none');	
             });
     });
+    
+    $('#backButton').click(function() {    
+             
+             window.location = 'index.html';
+         });
  
 });
