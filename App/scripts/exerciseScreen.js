@@ -106,6 +106,7 @@ ChordInput.prototype.frameRequest = function()
 	}
 
 	$(this.div).find('.chordInputContainer .romanNumeral').css('top', -6 - 420 - this.y);
+	$(this.div).next().css('top', 10 - this.y / 10);
 	
 	window.requestAnimationFrame(this.frameRequest);
 }
@@ -118,7 +119,7 @@ ChordInput.prototype.mousemove = function(evt)
 	{
 		this.y = this.yStart + (this.dragStart.y - mouse.y);
 		this.y += (this.y < 0 ? 420 : 0);
-		this.y = this.y % 420;
+		this.y = ((this.y + 30) % 420) - 30;
 		
 		this.val = Math.floor((this.y + 30) / 60);
 	}
