@@ -58,8 +58,11 @@ root {
     background-position: right;
     background-repeat:no-repeat;
     
-    
-    
-        
+}
+
+#tuningFork{
+    position:absolute;
+    top:360px;
+    left:540px;
     
 }

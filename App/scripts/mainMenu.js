@@ -54,3 +54,13 @@ $('#settings').click(function() {
     window.location = settings.html;
 });
  });
+
+$('#tuningFork').hover(function() {
+  $(this).attr('src', 'img/mainMenu/NewTuningForkHighlight.png');
+}, function() {
+  $(this).attr('src', 'img/mainMenu/NewTuningFork.png');
+});
+$('#settings').click(function() {
+    $(this).attr('src', 'img/mainMenu/NewTuningForkPressed.png')
+    window.location = tuning_fork.html;
+});
