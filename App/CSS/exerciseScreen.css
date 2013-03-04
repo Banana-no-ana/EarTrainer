@@ -85,6 +85,17 @@
 	height:60px;
 }
 
+.chordInputFixed
+{
+	background-image:url(../img/ChordInputFixed.png);
+	
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:50px;
+	height:60px;
+}
+
 .chordInputContainer
 {	
 	position:absolute;
@@ -109,7 +120,17 @@
 
 .sampleChord
 {
-	background-image:url(../img/exerciseScreen/LargeScoreWithoutNotes.png);
+	background-image:url(../img/exerciseScreen/LargeScoreNotes.png);
+	
+	position:absolute;
+	top:0px;
+	width:60px;
+	height:244px;
+}
+
+.sampleChordFixed
+{
+	background-image:url(../img/exerciseScreen/LargeScoreNotesFixed.png);
 	
 	position:absolute;
 	top:0px;
