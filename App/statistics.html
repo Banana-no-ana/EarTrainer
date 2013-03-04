@@ -7,15 +7,86 @@ and open the template in the editor.
     <head>
         <title></title>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
         
         <script type="text/javascript" src="scripts/statScreen.js"></script>
         <link rel='stylesheet' href='CSS/Global.css' type='text/css' charset='utf-8'>
-        <link rel='stylesheet' href='CSS/mainMenu.css' type='text/css' charset='utf-8'>
+        <link rel='stylesheet' href='CSS/statScreen.css' type='text/css' charset='utf-8'>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
         <div id="container" class="screenEnclosure"> 
-        
+                <div id="tabs-left">
+                    <ul>
+                    <li><a href="#tabs-1">Overview</a></li>
+                    <li><a href="#tabs-2">Recent</a></li>
+                    <li><a href="#tabs-3">Improvements</a></li>
+                    <li><a href="#tabs-4">Achievement</a></li>
+                    </ul>
+                <div id="tabs-1" class="tabContent">
+                    <h2>Chief MasterGwee</h2>
+                    <img src="img/StatScreen/Badge2.png" id="badge" />
+                    <h3></h3>
+                    <table style="width:65%">
+                        <tr>
+                            <td class="key">Time Played </td>
+                            <td class="value" align="right">12:50</td>
+                        </tr>
+                        <tr>
+                            <td class="key">Games Played </td>
+                            <td class="value" align="right">25</td>
+                        </tr>
+                        <tr>
+                            <td class="key">Games Finished </td>
+                            <td class="value" align="right">15</td>
+                        </tr>
+                        <tr>
+                            <td class="key">Longest Chain </td>
+                            <td class="value" align="right">8</td>
+                        </tr>
+                        <tr><td></td></tr>
+                        <tr><td></td></tr>
+                        <tr>
+                            <td class="key">Weakest Chord</td>
+                            <td class="value" align="right"><a href="ChordDatabase.html#V7">V7 (Dominant 7th chord)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="key">Strongest Chord</td>
+                            <td class="value" align="right"><a href="ChordDatabase.html#IV">IV (Subdominant)</a></td>
+                        </tr>                        
+                        <tr><td></td></tr>
+                        <tr><td></td></tr>
+                        <tr>
+                            <td class="key">Strongest Piece</td>
+                            <td class="value" align="right"><a href="ChordDatabase.html#Moonlight">Moonlight Sonata</a></td>
+                        </tr>   
+                        <tr>
+                            <td class="key">Weakest Piece</td>
+                            <td class="value" align="right"><a href="ChordDatabase.html#RainDrops">Raindrops</a></td>
+                        </tr>   
+                       
+                        
+                        
+                    </table>
+                </div>
+                <div id="tabs-2" class="tabContent">
+                    <h2>Recent</h2>
+                    <p>stubbly stub</p>
+                </div>
+                <div id="tabs-3" class="tabContent">
+                    <h2>Improvements</h2>
+                    
+                </div>
+                    <div id="tabs-4" class="tabContent">
+                    <h2>Achievement</h2>
+                    
+                </div>
+            </div>
+            
+            <div >
+                <img src="img/ReturnToStart.png" id="backButton"/>                
+            </div>
         </div>
     </body>
 </html>

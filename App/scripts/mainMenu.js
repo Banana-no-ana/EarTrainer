@@ -4,63 +4,76 @@
  */
 
  $(document).ready(function() {
-   $('#quickPlay').hover(function() {
-  $(this).attr('src', 'img/mainMenu/QuickplayHighlight.png');
-}, function() {
-  $(this).attr('src', 'img/mainMenu/Quickplay.png');
-});
-$('#quickPlay').click(function() {
-    $(this).attr('src', 'img/mainMenu/quickPlayPressed.png')
-    window.location = quickplay.html;
-});
+        $('#quickPlay').hover(function() {
+           $(this).attr('src', 'img/mainMenu/QuickplayHighlight.png');
+         }, function() {
+           $(this).attr('src', 'img/mainMenu/Quickplay.png');
+         });
+         $('#quickPlay').click(function() {
+             window.setTimeout(function() {
+             $(this).attr('src', 'img/mainMenu/quickPlayPressed.png');
+             }, 100);
+             window.location = 'quickplay.html';
+         });
 
-$('#advancedPlay').hover(function() {
-  $(this).attr('src', 'img/mainMenu/AdvancedplayHighlight.png');
-}, function() {
-  $(this).attr('src', 'img/mainMenu/Advancedplay.png');
-});
-$('#advancedPlay').click(function() {
-    $(this).attr('src', 'img/mainMenu/StatisticsPressed.png')
-    window.location = advancedPlay.html;
-});
+         $('#advancedPlay').hover(function() {
+           $(this).attr('src', 'img/mainMenu/AdvancedplayHighlight.png');
+         }, function() {
+           $(this).attr('src', 'img/mainMenu/Advancedplay.png');
+         });
+         $('#advancedPlay').click(function() {    
+             window.setTimeout(function() {
+             $(this).attr('src', 'img/mainMenu/StatisticsPressed.png');    
+                 }, 100);
+             window.location = 'advancedPlay.html';
+         });
 
-$('#statistics').hover(function() {
-  $(this).attr('src', 'img/mainMenu/StatisticsHighlight.png');
-}, function() {
-  $(this).attr('src', 'img/mainMenu/Statistics.png');
-});
-$('#statistics').click(function() {
-    $(this).attr('src', 'img/mainMenu/StatisticsPressed.png')
-    window.location = statistics.html;
-});
+         $('#statistics').hover(function() {
+           $(this).attr('src', 'img/mainMenu/StatisticsHighlight.png');
+         }, function() {
+           $(this).attr('src', 'img/mainMenu/Statistics.png');
+         });
+         $('#statistics').click(function() {
+         window.setTimeout(function() {
+             $(this).attr('src', 'img/mainMenu/StatisticsPressed.png');
+             }, 100);
+             window.location = 'statistics.html';
+         });
 
-$('#chordDatabase').hover(function() {
-  $(this).attr('src', 'img/mainMenu/ChorddatabaseHighlight.png');
-}, function() {
-  $(this).attr('src', 'img/mainMenu/Chorddatabase.png');
-});
-$('#chordDatabase').click(function() {
-    $(this).attr('src', 'img/mainMenu/chordDatabasePressed.png')
-    window.location = chordDatabase.html;
-});
+         $('#chordDatabase').hover(function() {
+           $(this).attr('src', 'img/mainMenu/ChorddatabaseHighlight.png');
+         }, function() {
+           $(this).attr('src', 'img/mainMenu/Chorddatabase.png');
+         });
+         $('#chordDatabase').click(function() {
+         window.setTimeout(function() {
+             $(this).attr('src', 'img/mainMenu/chordDatabasePressed.png');
+             }, 100);
+             window.location = 'chordDatabase.html';
+         });
 
-$('#settings').hover(function() {
-  $(this).attr('src', 'img/mainMenu/SettingsHighlight.png');
-}, function() {
-  $(this).attr('src', 'img/mainMenu/Settings.png');
-});
-$('#settings').click(function() {
-    $(this).attr('src', 'img/mainMenu/settingsPressed.png')
-    window.location = settings.html;
-});
+         $('#settings').hover(function() {
+           $(this).attr('src', 'img/mainMenu/SettingsHighlight.png');
+         }, function() {
+           $(this).attr('src', 'img/mainMenu/Settings.png');
+         });
+         $('#settings').click(function() {
+         window.setTimeout(function() {
+             $(this).attr('src', 'img/mainMenu/settingsPressed.png');
+             }, 100);
+             window.location = 'settings.html';
+         });
+
+         $('#tuningFork').hover(function() {
+           $(this).attr('src', 'img/mainMenu/NewTuningForkHighlight.png');
+         }, function() {
+           $(this).attr('src', 'img/mainMenu/NewTuningFork.png');
+         });
+         $('#tuningFork').click(function() {
+         window.setTimeout(function() {
+             $(this).attr('src', 'img/mainMenu/NewTuningForkPressed.png');
+             }, 100);
+             window.location = 'tuning_fork.html';
+         });
  });
 
-$('#tuningFork').hover(function() {
-  $(this).attr('src', 'img/mainMenu/NewTuningForkHighlight.png');
-}, function() {
-  $(this).attr('src', 'img/mainMenu/NewTuningFork.png');
-});
-$('#settings').click(function() {
-    $(this).attr('src', 'img/mainMenu/NewTuningForkPressed.png')
-    window.location = tuning_fork.html;
-});
