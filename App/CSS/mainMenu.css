@@ -58,11 +58,20 @@ root {
     background-position: right;
     background-repeat:no-repeat;
     
+    
 }
 
 #tuningFork{
     position:absolute;
     top:360px;
     left:540px;
+    
+}
+
+#titlePic{
+    position:absolute;
+    top:150px;
+    left: 475px;
+    
     
 }
