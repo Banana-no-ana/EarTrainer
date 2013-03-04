@@ -17,7 +17,7 @@ $('#quickPlay').click(function() {
 $('#advancedPlay').hover(function() {
   $(this).attr('src', 'img/mainMenu/AdvancedplayHighlight.png');
 }, function() {
-  $(this).attr('src', 'img/mainMenu/advancedPlay.png');
+  $(this).attr('src', 'img/mainMenu/AdvancedPlay.png');
 });
 $('#advancedPlay').click(function() {
     $(this).attr('src', 'img/mainMenu/StatisticsPressed.png')
@@ -27,7 +27,7 @@ $('#advancedPlay').click(function() {
 $('#statistics').hover(function() {
   $(this).attr('src', 'img/mainMenu/StatisticsHighlight.png');
 }, function() {
-  $(this).attr('src', 'img/mainMenu/statistics.png');
+  $(this).attr('src', 'img/mainMenu/Statistics.png');
 });
 $('#statistics').click(function() {
     $(this).attr('src', 'img/mainMenu/StatisticsPressed.png')
