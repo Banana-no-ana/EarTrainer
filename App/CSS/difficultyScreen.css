@@ -1,0 +1,48 @@
+.fsetChordType
+{
+	position:absolute;
+	
+	top: 20px;
+	left: 20px;
+	width: 160px;
+	height: 300px;
+}
+
+.fsetChordQuality
+{
+	position:absolute;
+	
+	top: 20px;
+	left: 220px;
+	width: 160px;
+	height: 300px;
+}
+
+.fsetGenerator
+{
+	position:absolute;
+	
+	top: 360px;
+	left: 20px;
+	width: 360px;
+	height: 140px;
+}
+
+.checkbox
+{
+	background-position:0px 0px;
+}
+
+.checkboxChecked
+{
+	background-position:-30px 0px;
+}
+
+.checkbox, .checkboxChecked
+{
+    background-image: url('../img/checkbox.png');
+    background-repeat: no-repeat;
+    float: left;
+    width: 30px;
+    height: 30px;
+}
