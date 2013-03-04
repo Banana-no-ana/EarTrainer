@@ -17,7 +17,7 @@ $('#quickPlay').click(function() {
 $('#advancedPlay').hover(function() {
   $(this).attr('src', 'img/mainMenu/AdvancedplayHighlight.png');
 }, function() {
-  $(this).attr('src', 'img/mainMenu/AdvancedPlay.png');
+  $(this).attr('src', 'img/mainMenu/Advancedplay.png');
 });
 $('#advancedPlay').click(function() {
     $(this).attr('src', 'img/mainMenu/StatisticsPressed.png')
