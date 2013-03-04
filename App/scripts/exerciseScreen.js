@@ -160,4 +160,11 @@ $(document).ready(function(){
 	$(document).mouseup(document_mouseup);
    
 	window.requestAnimationFrame(frameRequest);
+        
+        $('.result').hover(function() {
+            alert('Once the user changes the Roman Numerals, the dial changes to indicate whether user is correct or not, and auto continues to the section if they are');
+          
+         }, function() {
+           $(this).attr('title', '');
+         });
 });
