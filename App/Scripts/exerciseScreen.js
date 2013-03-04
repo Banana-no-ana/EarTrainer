@@ -150,15 +150,13 @@ var raf = window.requestAnimationFrame
 	   
 window.requestAnimationFrame = raf;
 
+for (var i = 1; i <= 24; i++)
+	new ChordInput(document.getElementById('chordInput' + i));
 
 $(document).ready(function(){
-   $(document).mousemove(document_mousemove);
-   $(document).mousedown(document_mousedown);
-   $(document).mouseup(document_mouseup);
+	$(document).mousemove(document_mousemove);
+	$(document).mousedown(document_mousedown);
+	$(document).mouseup(document_mouseup);
    
 	window.requestAnimationFrame(frameRequest);
 });
-
-
-for (var i = 1; i <= 24; i++)
-new ChordInput(document.getElementById('chordInput' + i));

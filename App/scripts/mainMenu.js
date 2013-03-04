@@ -13,7 +13,7 @@
              window.setTimeout(function() {
              $(this).attr('src', 'img/mainMenu/quickPlayPressed.png');
              }, 100);
-             window.location = 'quickplay.html';
+             window.location = 'exercise.html';
          });
 
          $('#advancedPlay').hover(function() {
@@ -25,7 +25,7 @@
              window.setTimeout(function() {
              $(this).attr('src', 'img/mainMenu/StatisticsPressed.png');    
                  }, 100);
-             window.location = 'advancedPlay.html';
+             window.location = 'difficulty.html';
          });
 
          $('#statistics').hover(function() {
