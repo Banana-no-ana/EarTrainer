@@ -51,7 +51,7 @@ root {
 }
 
 #welcomeUser {
-    
+    height:25px;
     background-image: url(../img/mainMenu/WelcomeBackground.png);
     top:3px;
     text-align: right;
