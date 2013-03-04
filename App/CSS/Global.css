@@ -12,6 +12,7 @@ root {
 
 /* Enclosure screen for the App. */
 .screenEnclosure {
+	position:relative;
     width: 800px;
     height: 600px;
     border: 2px solid #CCC;
