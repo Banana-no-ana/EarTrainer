@@ -1,0 +1,68 @@
+/* 
+    Document   : startScreen
+    Created on : Mar 3, 2013, 4:05:34 PM
+    Author     : Dan
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#menuItems{
+    position:relative;
+    left:+30px;
+}
+
+#quickPlay{
+   position:absolute;
+   top:100px;
+   width:300px;
+   left:+20px;
+}
+
+#advancedPlay{
+   position:absolute;
+   width:300px;
+   top:173px;
+   left:+32px;
+}
+
+#statistics{
+   position:absolute;
+   width:300px;
+   top:246px;
+   left:+44px;
+}
+
+#chordDatabase{
+    position:absolute;
+   width:300px;
+   top:319px;
+   left:+56px;
+}
+
+#settings{
+    position:absolute;
+   width:300px;
+   top:392px;
+   left:+68px;
+}
+
+#welcomeUser {
+    height:25px;
+    background-image: url(../img/mainMenu/WelcomeBackground.png);
+    top:3px;
+    text-align: right;
+    background-position: right;
+    background-repeat:no-repeat;
+    
+}
+
+#tuningFork{
+    position:absolute;
+    top:360px;
+    left:540px;
+    
+}
