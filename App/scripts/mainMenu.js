@@ -73,7 +73,7 @@
          window.setTimeout(function() {
              $(this).attr('src', 'img/mainMenu/NewTuningForkPressed.png');
              }, 100);
-             window.location = 'tuning_fork.html';
+             window.location = 'tuning.html';
          });
  });
 
