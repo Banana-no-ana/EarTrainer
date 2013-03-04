@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css" href="CSS/difficultyScreen.css" />
+<link rel="stylesheet" type="text/css" href="CSS/Global.css" />
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="Scripts/difficultyScreen.js"></script>
+</head>
+
+<body>
+
+<div id="Screen" class="screenEnclosure"> 
+
+	<div id="backFade" style="background-color:#100808; opacity:0.8; width:100%; height:100%;"></div>
+	
+	<div class="fsetChordTypeBack"/></div>
+	
+	<div class="fsetChordQualityBack"/></div>
+	
+	<div class="fsetGeneratorBack"/></div>
+	
+	<div class="trackListBack"/></div>
+	
+	<fieldset class="fsetChordType">
+		<legend>Specific Chords		</legend>
+	
+		
+		<br/>
+
+		<input id="chkTonic" type="checkbox" style="display:none" onChange="checkHandler(this);"/>
+		<label for="chkTonic" class="checkbox"></label>
+		<label for="chkTonic">Tonic (I)</label>
+		<br/><br/>
+
+		<input id="chkSubdom" type="checkbox" style="display:none" onChange="checkHandler(this);"/>
+		<label for="chkSubdom" class="checkbox"></label>
+		<label for="chkSubdom">Subdom (IV)</label>
+		<br/><br/>
+		
+		<input id="chkDominant" type="checkbox" style="display:none" onChange="checkHandler(this);"/>
+		<label for="chkDominant" class="checkbox"></label>
+		<label for="chkDominant">Dominant (ii)</label>
+		<br/><br/>
+		
+		<input id="chkLead" type="checkbox" style="display:none" onChange="checkHandler(this);"/>
+		<label for="chkLead" class="checkbox"></label>
+		<label for="chkLead">lead.Tone (vii)</label>
+		<br/><br/>
+
+	</fieldset>
+	
+	<fieldset class="fsetChordQuality">
+		<legend>Chord Quality</legend>
+
+		<br/>
+
+		<input id="chkMajor" type="checkbox" style="display:none" onChange="checkHandler(this);"/>
+		<label for="chkMajor" class="checkbox"></label>
+		<label for="chkMajor">Major</label>
+		<br/><br/>
+
+		<input id="chkMinor" type="checkbox" style="display:none" onChange="checkHandler(this);"/>
+		<label for="chkMinor" class="checkbox"></label>
+		<label for="chkMinor">Minor</label>
+		<br/><br/>
+		
+		<input id="chkAugmented" type="checkbox" style="display:none" onChange="checkHandler(this);"/>
+		<label for="chkAugmented" class="checkbox"></label>
+		<label for="chkAugmented">Augmented</label>
+		<br/><br/>
+		
+		<input id="chkDiminished" type="checkbox" style="display:none" onChange="checkHandler(this);"/>
+		<label for="chkDiminished" class="checkbox"></label>
+		<label for="chkDiminished">Diminished</label>
+		<br/><br/>
+		
+	</fieldset>
+		
+	<fieldset class="fsetGenerator">
+		<legend>Generator Specific</legend>
+		
+		<div>
+			<br/>
+
+			<input id="chkModeMixture" type="checkbox" style="display:none" onChange="checkHandler(this);"/>
+			<label for="chkModeMixture" class="checkbox"></label>
+			<label for="chkModeMixture">Mode Mixture</label>
+			<br/><br/>
+
+		</div>
+		
+	</fieldset>
+	
+	<fieldSet class="trackList">
+		<legend>Track List</legend>
+		
+		<ul style="font-size:15px; font-family:arial; padding-left:8px; line-height:34px">
+		<li>Bach Concerto E Major</li>
+		<li>Mozart oncerto #24 C Minor</li>
+		<li>Beethoven Symphony No. 9</li>
+		</ul>
+		
+	</fieldSet>
+	
+	<a class="startExerciseButton" href="./exercise.html"><p class="buttonText">Start</p></a>
+	
+	<a class="returnToMenuButton" href="./index.html"><p class="buttonText">Return</p></a>
+	
+</div>
+
+<script type="text/javascript" src="Scripts/difficultyScreen.js"></script>
+
+</body>
+</html>
