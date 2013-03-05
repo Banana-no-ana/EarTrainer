@@ -136,9 +136,22 @@
 {
 	font-family:arial;
 	font-size:35px;
-
+        color:white;
 	position:absolute;
 	top: 10%;
 	left: 24%;
 
+}
+
+.fsetChordType{
+    color: white;
+}
+.fsetChordQuality{
+    color:white;
+}
+.fsetGenerator{
+    color:white;
+}
+.trackList{
+    color:white;
 }
