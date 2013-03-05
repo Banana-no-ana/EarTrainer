@@ -75,20 +75,30 @@ function mouseToScreenSpace(evt)
 	return new Vector2(evt.clientX - rect.left, evt.clientY - rect.top);
 }
 
-function ChordInput(div)
+function ChordInput(div, enabled, initialValue)
 {
 	this.div = div;
-	this.val = 0;
+	this.val = initialValue - 1;
 	
 	this.dragging = false;
 	this.dragStart = 0;
 
 	this.yStart = 0;
-	this.y = 0;
+	this.y = (initialValue - 1) * 60;
 	
-	this.div.addEventListener('mousemove', ChordInput.prototype.mousemove.bind(this));
-	this.div.addEventListener('mousedown', ChordInput.prototype.mousedown.bind(this));
-	this.div.addEventListener('mouseup', ChordInput.prototype.mouseup.bind(this));
+	if (enabled)
+	{
+		this.div.addEventListener('mousemove', ChordInput.prototype.mousemove.bind(this));
+		this.div.addEventListener('mousedown', ChordInput.prototype.mousedown.bind(this));
+		this.div.addEventListener('mouseup', ChordInput.prototype.mouseup.bind(this));
+	}
+	else
+	{
+		$(this.div).removeClass("chordInput");
+		$(this.div).addClass("chordInputFixed");
+		$(this.div).next().removeClass("sampleChord");
+		$(this.div).next().addClass("sampleChordFixed");
+	}
 	
 	this.frameRequest = ChordInput.prototype.frameRequest.bind(this);
 	window.requestAnimationFrame(this.frameRequest);
@@ -106,7 +116,7 @@ ChordInput.prototype.frameRequest = function()
 	}
 
 	$(this.div).find('.chordInputContainer .romanNumeral').css('top', -6 - 420 - this.y);
-	$(this.div).next().css('top', 10 - this.y / 10);
+	$(this.div).next().css('top', 25 - this.y / 10);
 	
 	window.requestAnimationFrame(this.frameRequest);
 }
@@ -151,20 +161,20 @@ var raf = window.requestAnimationFrame
 	   
 window.requestAnimationFrame = raf;
 
-for (var i = 1; i <= 24; i++)
-	new ChordInput(document.getElementById('chordInput' + i));
-
 $(document).ready(function(){
 	$(document).mousemove(document_mousemove);
 	$(document).mousedown(document_mousedown);
 	$(document).mouseup(document_mouseup);
    
 	window.requestAnimationFrame(frameRequest);
+	
+	for (var i = 1; i <= 24; i++)
+		new ChordInput(document.getElementById('chordInput' + i), (i % 2) == 0, i % 7);
         
-        $('.result').hover(function() {
-            alert('Once the user changes the Roman Numerals, the dial changes to indicate whether user is correct or not, and auto continues to the section if they are');
-          
-         }, function() {
-           $(this).attr('title', '');
-         });
+	$('.result').hover(function() {
+		alert('Once the user changes the Roman Numerals, the dial changes to indicate whether user is correct or not, and auto continues to the next section if they are');
+	  
+	 }, function() {
+	   $(this).attr('title', '');
+	 });
 });
