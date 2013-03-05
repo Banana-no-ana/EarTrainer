@@ -64,5 +64,7 @@
 #backButton{
     position:absolute;
     top:450px;
-    left: 100px;
+    left: 30px;
+    width:200px;
+    
 }
