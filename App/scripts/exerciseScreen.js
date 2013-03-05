@@ -142,6 +142,8 @@ ChordInput.prototype.mousedown = function(evt)
 	this.dragging = true;
 	this.dragStart = mouse;
 	this.yStart = this.y;
+	
+	this.div.setCapture();
 }
 
 ChordInput.prototype.mouseup = function(evt)
@@ -167,6 +169,8 @@ $(document).ready(function(){
 	$(document).mouseup(document_mouseup);
    
 	window.requestAnimationFrame(frameRequest);
+	
+	window.ondragstart = function() { return false; } 
 	
 	for (var i = 1; i <= 24; i++)
 		new ChordInput(document.getElementById('chordInput' + i), (i % 2) == 0, i % 7);

@@ -49,7 +49,7 @@
          window.setTimeout(function() {
              $(this).attr('src', 'img/mainMenu/chordDatabasePressed.png');
              }, 100);
-             window.location = 'chordDatabase.html';
+             window.location = 'database.html';
          });
 
          $('#settings').hover(function() {

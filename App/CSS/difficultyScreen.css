@@ -98,7 +98,7 @@
 
 .checkbox, .checkboxChecked
 {
-    background-image: url('../img/Checkbox.png');
+    background-image: url('../img/difficultyScreen/Checkbox.png');
     background-repeat: no-repeat;
     float: left;
     width: 30px;
@@ -108,7 +108,7 @@
 
 .startExerciseButton
 {
-	background-image: url('../img/StartExercises.png');
+	background-image: url('../img/difficultyScreen/StartExercises.png');
 	background-size:cover;
 	display:block;
 	
@@ -136,7 +136,7 @@
 {
 	font-family:arial;
 	font-size:35px;
-        color:white;
+	color:white;
 	position:absolute;
 	top: 10%;
 	left: 24%;
