@@ -30,6 +30,24 @@
 	border-right:2px solid #000000;
 }
 
+.largeScoreBack
+{
+	background-color:#101020;
+	opacity:0.8;
+
+	position:absolute;
+	left: 60px;
+	top: 98px;
+	width:680px;
+	height:360px;
+	
+	border-left:2px solid #000000;
+	border-right:2px solid #000000;
+	
+	border-top:2px solid #000000;
+	border-bottom:10px solid #000000;
+}
+
 .largeScoreContainer
 {
 	position:absolute;
@@ -54,9 +72,10 @@
 .smallScoreBar
 {
 	background-image:url(../img/exerciseScreen/ScoreBar.png);
+	background-size:cover;
 	position:absolute;
 	
-	width:5px;
+	width:3px;
 	height:78px;
 	
 	margin-left:-2.5px

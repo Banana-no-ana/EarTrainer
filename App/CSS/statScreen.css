@@ -79,11 +79,42 @@
     position:relative;
     left:+90px;
 }
+
+.backDiv
+{
+	position:absolute;
+	top:380px;
+	left:0px;
+	width:150px;
+	height:45px;
+}
+
+.backList
+{
+	position: absolute;
+	left: 3.5em;
+	top: 5em;
+	bottom: 21em;
+	width: 100%;
+	height: 100%;
+	padding: 0.3em 0.3em 0.3em 0.2em;
+}
+
+.backListItem
+{
+	right: 0px;
+	width: 100%;
+	
+	border-right: medium none;
+	border-bottom-width: 1px !important;
+	
+	border-radius: 3px 0px 0px 3px;
+	overflow: hidden;
+}
   
-#backButton{
-    position:absolute;
-    top:450px;
-    left: 45px;
-    width:200px;
-    
+.backAnchor
+{
+	float: right;
+	width: 75%;
+	text-align: right;
 }

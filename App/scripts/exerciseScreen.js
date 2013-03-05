@@ -24,7 +24,7 @@ function  document_mousedown(evt)
 	var mouse = mouseToScreenSpace(evt);
 	
 	
-	if (mouse.y < 320)
+	if (mouse.y < 480)
 	{
 		dragging = true;
 		dragStart = mouse;
@@ -106,6 +106,9 @@ function ChordInput(div, enabled, initialValue)
 
 ChordInput.prototype.frameRequest = function()
 {
+	if(this.dragging)
+		dragging = false;
+
 	if (!this.dragging)
 	{
 		var dif = this.y - this.val * 60
@@ -124,7 +127,7 @@ ChordInput.prototype.frameRequest = function()
 ChordInput.prototype.mousemove = function(evt)
 {
 	var mouse = mouseToScreenSpace(evt);
-
+	
 	if (this.dragging)
 	{
 		this.y = this.yStart + (this.dragStart.y - mouse.y);
@@ -149,6 +152,7 @@ ChordInput.prototype.mousedown = function(evt)
 ChordInput.prototype.mouseup = function(evt)
 {
 	this.dragging = false;
+	this.div.releaseCapture();
 }
 
 
