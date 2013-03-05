@@ -95,15 +95,15 @@ function ChordInputInit(div, enabled, initialValue)
 		$(div.notesBig).addClass("sampleChordFixed");
 	}
 	
-	div.addEventListener('mousemove', ChordInputInit.prototype.mousemove.bind(div));
-	div.addEventListener('mousedown', ChordInputInit.prototype.mousedown.bind(div));
-	div.addEventListener('mouseup', ChordInputInit.prototype.mouseup.bind(div));
+	div.addEventListener('mousemove', chordInput_mousemove.bind(div));
+	div.addEventListener('mousedown', chordInput_mousedown.bind(div));
+	div.addEventListener('mouseup', chordInput_mouseup.bind(div));
 	
-	div.frameRequest = ChordInputInit.prototype.frameRequest.bind(div);
+	div.frameRequest = chordInput_frameRequest.bind(div);
 	window.requestAnimationFrame(div.frameRequest);
 }
 
-ChordInputInit.prototype.frameRequest = function()
+function chordInput_frameRequest()
 {
 	if(this.dragging)
 		dragging = false;
@@ -123,7 +123,7 @@ ChordInputInit.prototype.frameRequest = function()
 	window.requestAnimationFrame(this.frameRequest);
 }
 
-ChordInputInit.prototype.mousemove = function(evt)
+function chordInput_mousemove(evt)
 {
 	if (!this.enabled)
 		return;
@@ -140,7 +140,7 @@ ChordInputInit.prototype.mousemove = function(evt)
 	}
 }
 
-ChordInputInit.prototype.mousedown = function(evt)
+function chordInput_mousedown(evt)
 {
 	if (!this.enabled)
 		return;
@@ -152,15 +152,79 @@ ChordInputInit.prototype.mousedown = function(evt)
 	this.yStart = this.y;
 	
 	this.setCapture();
+	
+	
+	var elem = document.getElementById('result');
+	elem.evaluate = false;
 }
 
-ChordInputInit.prototype.mouseup = function(evt)
+function chordInput_mouseup(evt)
 {
 	if (!this.enabled)
 		return;
 		
 	this.dragging = false;
 	this.releaseCapture();
+	
+	evaluateAnswer(this);
+}
+
+function evaluateAnswer(ip)
+{
+	var elem = document.getElementById('result');
+
+	
+	elem.waitTime = 70;
+	elem.correct = true;
+	elem.evaluate = true;
+}
+
+function result_frameRequest()
+{
+	if (this.waitTime > 0)
+	{
+		$(this).addClass('resultTime');
+		this.waitTime -= 1;
+		this.time += 1;
+		
+		if (this.time > 4)
+		{
+			this.time = 0;
+			this.imageShift = (this.imageShift + 110) % 880;
+			$(this).css('top', -this.imageShift);
+		}
+	}
+	else
+	{
+		if (this.evaluate)
+		{
+			if (this.correct)
+			{
+				$(this).addClass('resultCorrect');
+				$(this).removeClass('resultIncorrect');
+			}
+			else
+			{
+				$(this).addClass('resultIncorrect');
+				$(this).removeClass('resultCorrect');
+			}
+		}
+		else
+		{
+			$(this).removeClass('resultCorrect');
+			$(this).removeClass('resultIncorrect');
+		}
+			
+		$(this).removeClass('resultTime');
+	}
+	
+	if (this.waitTime <= 0 && this.correct == 1)
+	{
+		
+	}
+	
+	
+	window.requestAnimationFrame(this.frameRequest);
 }
 
 
@@ -184,6 +248,14 @@ $(document).ready(function(){
 	
 	for (var i = 1; i <= 24; i++)
 		ChordInputInit(document.getElementById('chordInput' + i), (i % 2) == 0, (i - 1) % 7);
+		
+	var result = document.getElementById('result');
+	
+	result.time = 0;
+	result.imageShift = 0;
+	
+	result.frameRequest = result_frameRequest.bind(result);
+	window.requestAnimationFrame(result.frameRequest);
         
 	$('.result').hover(function() {
 		alert('Once the user changes the Roman Numerals, the dial changes to indicate whether user is correct or not, and auto continues to the next section if they are');
