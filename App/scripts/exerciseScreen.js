@@ -75,36 +75,35 @@ function mouseToScreenSpace(evt)
 	return new Vector2(evt.clientX - rect.left, evt.clientY - rect.top);
 }
 
-function ChordInput(div, enabled, initialValue)
+function ChordInputInit(div, enabled, initialValue)
 {
-	this.div = div;
-	this.val = initialValue - 1;
+	div.enabled = enabled;
+	div.val = initialValue;
 	
-	this.dragging = false;
-	this.dragStart = 0;
+	div.dragging = false;
+	div.dragStart = 0;
 
-	this.yStart = 0;
-	this.y = (initialValue - 1) * 60;
+	div.yStart = 0;
+	div.y = initialValue * 60;
 	
-	if (enabled)
+	div.notesBig = document.getElementById(div.id + "NB");
+	div.notesSmall = document.getElementById(div.id + "NS");
+	
+	if (!div.enabled)
 	{
-		this.div.addEventListener('mousemove', ChordInput.prototype.mousemove.bind(this));
-		this.div.addEventListener('mousedown', ChordInput.prototype.mousedown.bind(this));
-		this.div.addEventListener('mouseup', ChordInput.prototype.mouseup.bind(this));
-	}
-	else
-	{
-		$(this.div).removeClass("chordInput");
-		$(this.div).addClass("chordInputFixed");
-		$(this.div).next().removeClass("sampleChord");
-		$(this.div).next().addClass("sampleChordFixed");
+		$(div).addClass("chordInputFixed");
+		$(div.notesBig).addClass("sampleChordFixed");
 	}
 	
-	this.frameRequest = ChordInput.prototype.frameRequest.bind(this);
-	window.requestAnimationFrame(this.frameRequest);
+	div.addEventListener('mousemove', ChordInputInit.prototype.mousemove.bind(div));
+	div.addEventListener('mousedown', ChordInputInit.prototype.mousedown.bind(div));
+	div.addEventListener('mouseup', ChordInputInit.prototype.mouseup.bind(div));
+	
+	div.frameRequest = ChordInputInit.prototype.frameRequest.bind(div);
+	window.requestAnimationFrame(div.frameRequest);
 }
 
-ChordInput.prototype.frameRequest = function()
+ChordInputInit.prototype.frameRequest = function()
 {
 	if(this.dragging)
 		dragging = false;
@@ -118,14 +117,17 @@ ChordInput.prototype.frameRequest = function()
 			this.y += (dif > 0 ? -1 : 1) * 5;
 	}
 
-	$(this.div).find('.chordInputContainer .romanNumeral').css('top', -6 - 420 - this.y);
-	$(this.div).next().css('top', 25 - this.y / 10);
+	$(this).find('.chordInputContainer .romanNumeral').css('top', -6 - 420 - this.y);
+	$(this.notesBig).css('top', 32 - this.y / 10);
 	
 	window.requestAnimationFrame(this.frameRequest);
 }
 
-ChordInput.prototype.mousemove = function(evt)
+ChordInputInit.prototype.mousemove = function(evt)
 {
+	if (!this.enabled)
+		return;
+
 	var mouse = mouseToScreenSpace(evt);
 	
 	if (this.dragging)
@@ -138,24 +140,28 @@ ChordInput.prototype.mousemove = function(evt)
 	}
 }
 
-ChordInput.prototype.mousedown = function(evt)
+ChordInputInit.prototype.mousedown = function(evt)
 {
+	if (!this.enabled)
+		return;
+
 	var mouse = mouseToScreenSpace(evt);
 	
 	this.dragging = true;
 	this.dragStart = mouse;
 	this.yStart = this.y;
 	
-	this.div.setCapture();
+	this.setCapture();
 }
 
-ChordInput.prototype.mouseup = function(evt)
+ChordInputInit.prototype.mouseup = function(evt)
 {
+	if (!this.enabled)
+		return;
+		
 	this.dragging = false;
-	this.div.releaseCapture();
+	this.releaseCapture();
 }
-
-
 
 
 var raf = window.requestAnimationFrame
@@ -177,7 +183,7 @@ $(document).ready(function(){
 	window.ondragstart = function() { return false; } 
 	
 	for (var i = 1; i <= 24; i++)
-		new ChordInput(document.getElementById('chordInput' + i), (i % 2) == 0, i % 7);
+		ChordInputInit(document.getElementById('chordInput' + i), (i % 2) == 0, (i - 1) % 7);
         
 	$('.result').hover(function() {
 		alert('Once the user changes the Roman Numerals, the dial changes to indicate whether user is correct or not, and auto continues to the next section if they are');
