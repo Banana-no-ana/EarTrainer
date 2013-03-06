@@ -6,6 +6,8 @@ var scoreXStart = 0;
 var scoreX = 0;
 
 var scoreSegment = 0;
+var helpState = 1; //1 for down, 2 for up;
+
 
 function document_mousemove(evt)
 {
@@ -179,6 +181,26 @@ function evaluateAnswer(ip)
 	elem.evaluate = true;
 }
 
+function hintClicked() {
+    if(helpState === 1){
+        $('#hintButton').animate( {
+        bottom: '130px'        
+        }, 1000);
+        helpState = 2;
+        
+        $('#helpText').fadeIn(1500);
+    } else {
+        $('#hintButton').animate( {
+        bottom: '0px'        
+        }, 1000);
+        helpState = 1;
+        $('#helpText').fadeOut(1500);
+    }
+    
+    
+    
+}
+
 function result_frameRequest()
 {
 	if (this.waitTime > 0)
@@ -263,4 +285,6 @@ $(document).ready(function(){
 	 }, function() {
 	   $(this).attr('title', '');
 	 });
+         
+         $('#hintButton').click(hintClicked);
 });
