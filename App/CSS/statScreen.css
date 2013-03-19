@@ -33,9 +33,9 @@
     border-right: 3px solid transparent; 
 } 
 #tabs-left .ui-tabs-nav li a { 
-    float: right; 
+    float: left; 
     width: 100%; 
-    text-align: right; 
+    text-align: left; 
 } 
 #tabs-left > div { 
     height: 35em; 
@@ -114,7 +114,7 @@
   
 .backAnchor
 {
-	float: right;
+	float: left;
 	width: 75%;
-	text-align: right;
+	text-align: left;
 }

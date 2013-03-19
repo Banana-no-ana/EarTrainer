@@ -8,6 +8,7 @@ var scoreX = 0;
 var scoreSegment = 0;
 var helpState = 1; //1 for down, 2 for up;
 
+var showHelp1 = true;
 
 function document_mousemove(evt)
 {
@@ -37,6 +38,8 @@ function  document_mousedown(evt)
 		else
 			dragScale = 1;
 	}
+	
+	showHelp1 = false;
 }
 
 function  document_mouseup(evt)
@@ -56,13 +59,14 @@ function frameRequest()
 	}
 	
 	$('.largeScoreContainer').css('left', -scoreX);
+	$('.smallScoreContainer').css('left', -scoreX * 125 / 600);
 	
-	$('#smallScoreBar1').css('left', 750 - (70 + (scoreX * (125 / 600)  + 172) % 750));
-	$('#smallScoreBar2').css('left', 750 - (70 + (scoreX * (125 / 600)  + 297) % 750));
-	$('#smallScoreBar3').css('left', 750 - (70 + (scoreX * (125 / 600)  + 422) % 750));
-	$('#smallScoreBar4').css('left', 750 - (70 + (scoreX * (125 / 600)  + 547) % 750));
-	$('#smallScoreBar5').css('left', 750 - (70 + (scoreX * (125 / 600)  + 672) % 750));
-	$('#smallScoreBar6').css('left', 750 - (70 + (scoreX * (125 / 600)  + 797) % 750));
+	//$('#smallScoreBar1').css('left', 750 - (70 + (scoreX * (125 / 600)  + 172) % 750));
+	//$('#smallScoreBar2').css('left', 750 - (70 + (scoreX * (125 / 600)  + 297) % 750));
+	//$('#smallScoreBar3').css('left', 750 - (70 + (scoreX * (125 / 600)  + 422) % 750));
+	//$('#smallScoreBar4').css('left', 750 - (70 + (scoreX * (125 / 600)  + 547) % 750));
+	//$('#smallScoreBar5').css('left', 750 - (70 + (scoreX * (125 / 600)  + 672) % 750));
+	//$('#smallScoreBar6').css('left', 750 - (70 + (scoreX * (125 / 600)  + 797) % 750));
 	
 	
 	window.requestAnimationFrame(frameRequest);
@@ -88,13 +92,14 @@ function ChordInputInit(div, enabled, initialValue)
 	div.yStart = 0;
 	div.y = initialValue * 60;
 	
-	div.notesBig = document.getElementById(div.id + "NB");
+	div.notesBig = document.getElementById(div.id + "NL");
 	div.notesSmall = document.getElementById(div.id + "NS");
 	
 	if (!div.enabled)
 	{
 		$(div).addClass("chordInputFixed");
-		$(div.notesBig).addClass("sampleChordFixed");
+		$(div.notesBig).addClass("sampleChordLFixed");
+		$(div.notesSmall).addClass("sampleChordSFixed");
 	}
 	
 	div.addEventListener('mousemove', chordInput_mousemove.bind(div));
@@ -121,6 +126,7 @@ function chordInput_frameRequest()
 
 	$(this).find('.chordInputContainer .romanNumeral').css('top', -6 - 420 - this.y);
 	$(this.notesBig).css('top', 32 - this.y / 10);
+	$(this.notesSmall).css('top', 16 - this.y / 23);
 	
 	window.requestAnimationFrame(this.frameRequest);
 }
@@ -181,26 +187,6 @@ function evaluateAnswer(ip)
 	elem.evaluate = true;
 }
 
-function hintClicked() {
-    if(helpState === 1){
-        $('#hintButton').animate( {
-        bottom: '130px'        
-        }, 1000);
-        helpState = 2;
-        
-        $('#helpText').fadeIn(1500);
-    } else {
-        $('#hintButton').animate( {
-        bottom: '0px'        
-        }, 1000);
-        helpState = 1;
-        $('#helpText').fadeOut(1500);
-    }
-    
-    
-    
-}
-
 function result_frameRequest()
 {
 	if (this.waitTime > 0)
@@ -249,6 +235,42 @@ function result_frameRequest()
 	window.requestAnimationFrame(this.frameRequest);
 }
 
+function hintClicked() {
+    if(helpState === 1){
+        $('#hintButton').animate( {
+        bottom: '130px'        
+        }, 1000);
+        helpState = 2;
+        
+        $('#helpText').fadeIn(1500);
+    } else {
+        $('#hintButton').animate( {
+        bottom: '0px'        
+        }, 1000);
+        helpState = 1;
+        $('#helpText').fadeOut(1500);
+    }
+    
+    
+    
+}
+
+function help_frameRequest()
+{
+	if (showHelp1)
+	{
+		if (!$('#helpArrow1').is(':animated'))
+			$('#helpArrow1').effect("bounce", { times:1, distance: 3 }, 800);
+	}
+	else
+	{
+		$('#helpBox1').css('opacity', $('#helpBox1').css('opacity') - 0.05);
+		$('#helpArrow1').css('opacity', $('#helpArrow1').css('opacity') - 0.05);
+	}
+	
+	window.requestAnimationFrame(help_frameRequest);
+}
+
 
 var raf = window.requestAnimationFrame
 	   || window.webkitRequestAnimationFrame
@@ -260,31 +282,30 @@ var raf = window.requestAnimationFrame
 window.requestAnimationFrame = raf;
 
 $(document).ready(function(){
+	// Init window events.
 	$(document).mousemove(document_mousemove);
 	$(document).mousedown(document_mousedown);
 	$(document).mouseup(document_mouseup);
    
 	window.requestAnimationFrame(frameRequest);
 	
+	// Disable image dragging.
 	window.ondragstart = function() { return false; } 
 	
+	// Init chord input boxes.
 	for (var i = 1; i <= 24; i++)
 		ChordInputInit(document.getElementById('chordInput' + i), (i % 2) == 0, (i - 1) % 7);
-		
-	var result = document.getElementById('result');
 	
+	// Init result box.
+	var result = document.getElementById('result');	
 	result.time = 0;
 	result.imageShift = 0;
-	
 	result.frameRequest = result_frameRequest.bind(result);
 	window.requestAnimationFrame(result.frameRequest);
-        
-	$('.result').hover(function() {
-		alert('Once the user changes the Roman Numerals, the dial changes to indicate whether user is correct or not, and auto continues to the next section if they are');
-	  
-	 }, function() {
-	   $(this).attr('title', '');
-	 });
+	
+	window.requestAnimationFrame(help_frameRequest);
+	help_frameRequest();
+	
          
-         $('#hintButton').click(hintClicked);
+	 $('#hintButton').click(hintClicked);
 });

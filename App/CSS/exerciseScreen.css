@@ -14,6 +14,15 @@
 	border:2px solid #000000;
 }
 
+.smallScoreContainer
+{
+	position:absolute;
+	width:80000px;
+	height:81px;
+	
+	overflow: hidden;
+}
+
 .largeScore
 {
 	background-image:url(../img/exerciseScreen/ScoreLarge.png);
@@ -32,7 +41,7 @@
 
 .largeScoreBack
 {
-	background-color:#101020;
+	background-color:#303070;
 	opacity:0.8;
 
 	position:absolute;
@@ -137,7 +146,7 @@
 	height:1260px;	
 }
 
-.sampleChord
+.sampleChordL
 {
 	background-image:url(../img/exerciseScreen/LargeScoreNotes.png);
 	
@@ -147,9 +156,24 @@
 	height:244px;
 }
 
-.sampleChordFixed
+.sampleChordS
+{
+	background-image:url(../img/exerciseScreen/SmallScoreNotes.png);
+	
+	position:absolute;
+	top:0px;
+	width:21px;
+	height:85px;
+}
+
+.sampleChordLFixed
 {
 	background-image:url(../img/exerciseScreen/LargeScoreNotesFixed.png);
+}
+
+.sampleChordSFixed
+{
+	background-image:url(../img/exerciseScreen/SmallScoreNotesFixed.png);
 }
 
 
@@ -252,4 +276,37 @@
 #sampleNotes{
     position:relative;
     left:+90px;
+}
+
+#helpBox1{
+    background-color: #cad3ec;
+	opacity: 0.9;
+	
+	position: absolute;
+	
+    width: 140px;
+    height: 130px;
+    left:380px;
+    top:200px;
+	
+	padding-left:8px;
+	border:2px solid #000000;
+    border-radius: 20px; 
+}
+
+#helpArrow1{
+	background-image: url(../img/exerciseScreen/Arrow1.png);
+	background-size: cover;
+	
+	position:absolute;
+	
+	width: 53px;
+	height: 53px;
+	left: 325px;
+	top:330px;
+}
+
+#helpArrow2{
+	background-image:url(../img/exerciseScreen/Arrow2.png);
+
 }
