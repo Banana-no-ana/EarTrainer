@@ -185,6 +185,7 @@ function evaluateAnswer(ip)
 	elem.waitTime = 70;
 	elem.correct = true;
 	elem.evaluate = true;
+	elem.element = ip;
 }
 
 function result_frameRequest()
@@ -228,7 +229,7 @@ function result_frameRequest()
 	
 	if (this.waitTime <= 0 && this.correct == 1)
 	{
-		
+		$(this.element).addClass('chordInputCorrect');
 	}
 	
 	
