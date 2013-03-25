@@ -1,32 +1,111 @@
 /* 
-    Document   : chordScreen
-    Created on : Mar 4, 2013, 2:20:59 AM
+    Document   : statScreen
+    Created on : Mar 3, 2013, 8:06:35 PM
     Author     : Dan
     Description:
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
+#tabs-top { 
+    background:none;
+	margin-left:12em;
+	margin-right:2em;
+	border: none;
+} 
+#tabs-top ul {
+	background:none;
+	border: none;
 }
 
-#clearBorder {
-    width: 800px;
-    height:600px;
-    border:solid #EFEFEF;
+#tabs-top .ui-tabs-nav li { 
+    margin-left:1em;
+} 
+
+
+
+#tabs-left .ui-tabs-nav li a { 
+    float: left; 
+    width: 100%; 
+    text-align: left; 
+} 
+#tabs-left > div { 
+    height: 35em; 
+    background:transparent;
+}
+
+.tabContent{
+
+}
+
+.tabContent > h2{
     
 }
-#content {
-    width:800px;
-    height:600px;
+.tabContent > td {
+    
 }
 
-#backButton {
-    position:absolute;
-	top:485px;
-    left:45px;
-    width:110px;
-    height:45px;
+.tabContainerBack
+{
+	position:absolute;
+	
+	background-color:#FFF;
+	border: 2px solid #000;
+	border-radius: 12px;
+	opacity:0.75;
+	
+	left:13em;
+	top:3em;
+	width:35em;
+	height:90%;
+}
 
-    
+.searchResultDiv
+{
+	position:absolute;
+	
+	background-color:#FFF;
+	border: 2px solid #000;
+	border-radius:12px;
+	opacity:0.75;
+	
+	left:30px;
+	top:160px;
+	width:150px;
+	height:300px;
+}
+
+.backDiv
+{
+	position:absolute;
+	top:500px;
+	left:25px;
+	width:140px;
+	height:45px;
+}
+
+.backList
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0.3em 0.3em 0.3em 0.2em;
+}
+
+.backListItem
+{
+	right: 0px;
+	width: 100%;
+	
+	border-right: medium none;
+	border-bottom-width: 1px !important;
+	
+	border-radius: 3px 0px 0px 3px;
+	overflow: hidden;
+}
+  
+.backAnchor
+{
+	float: left;
+	width: 75%;
+	text-align: left;
 }

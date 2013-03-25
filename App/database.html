@@ -5,25 +5,55 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Chord Database</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+        <title></title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
         
+        <script type="text/javascript" src="scripts/databaseScreen.js"></script>
         <link rel='stylesheet' href='CSS/Global.css' type='text/css' charset='utf-8'>
         <link rel='stylesheet' href='CSS/databaseScreen.css' type='text/css' charset='utf-8'>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        
-        <div id="clearBorder">
-            <img id="content" src="img/DatabaseScreen/ChordDatabase.png" />
+        <div id="container" class="screenEnclosure">
+		
+			<div class="tabContainerBack"></div>
+	
+			<div id="tabs-top" class="tabContainer">
+			
+				<ul>
+				<li><a href="#tabs-1">Summary</a></li>
+				<li><a href="#tabs-2">Function</a></li>
+				<li><a href="#tabs-3">Major</a></li>
+				<li><a href="#tabs-4">Minor</a></li>
+				</ul>
+				
+				<div id="tabs-1" class="tabContent">
+					<h2>Summary</h2>
+				</div>
+				<div id="tabs-2" class="tabContent">
+					<h2>Function</h2>
+				</div>
+				<div id="tabs-3" class="tabContent">
+					<h2>Major</h2>
+				</div>
+				<div id="tabs-4" class="tabContent">
+					<h2>Minor</h2>
+				</div>
+			</div>
+			
+			<div class="searchResultDiv">
+			
+			</div>
+				
+			<div class="backDiv ui-widget ui-tabs">
+				<ul class="backList ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all ">
+					<li id="backButton" class="backListItem ui-state-default ui-corner-top">
+						<a class="backAnchor ui-tabs-anchor" href='index.html'>Return</a>
+					</li>
+				</ul>
+			</div>
         </div>
-		
-		<div id="backButton">
-			<a style="display:block; width:100%; height:100%;" href="./index.html"/>
-		</div>
-		
-            
-		<script type="text/javascript" src="scripts/databaseScreen.js"></script>
-		
     </body>
 </html>

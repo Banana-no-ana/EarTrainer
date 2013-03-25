@@ -262,11 +262,20 @@ function help_frameRequest()
 	{
 		if (!$('#helpArrow1').is(':animated'))
 			$('#helpArrow1').effect("bounce", { times:1, distance: 3 }, 800);
+			
+		if (!$('#helpBox1').is(':animated'))
+			$('#helpBox1').effect("bounce", { times:1, distance: 3 }, 800);
 	}
 	else
 	{
 		$('#helpBox1').css('opacity', $('#helpBox1').css('opacity') - 0.05);
 		$('#helpArrow1').css('opacity', $('#helpArrow1').css('opacity') - 0.05);
+		
+		if ($('#helpArrow1').css('opacity') <= 0)
+			$('#helpArrow1').css('display', 'none');
+		
+		if ($('#helpBox1').css('opacity') <= 0)
+			$('#helpBox1').css('display', 'none');
 	}
 	
 	window.requestAnimationFrame(help_frameRequest);
