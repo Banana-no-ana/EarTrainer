@@ -81,10 +81,11 @@ function mouseToScreenSpace(evt)
 	return new Vector2(evt.clientX - rect.left, evt.clientY - rect.top);
 }
 
-function ChordInputInit(div, enabled, initialValue)
+function ChordInputInit(div, enabled, initialValue, correctValue)
 {
 	div.enabled = enabled;
 	div.val = initialValue;
+	div.correctVal = correctValue;
 	
 	div.dragging = false;
 	div.dragStart = 0;
@@ -168,9 +169,6 @@ function chordInput_mousedown(evt)
 
 function chordInput_mouseup(evt)
 {
-	if (!this.enabled)
-		return;
-		
 	this.dragging = false;
 	this.releaseCapture();
 	
@@ -181,10 +179,12 @@ function evaluateAnswer(ip)
 {
 	var elem = document.getElementById('result');
 
+	chords[ip.val].currentTime = 0;
+	chords[ip.val].play();
 	
-	elem.waitTime = 70;
-	elem.correct = true;
-	elem.evaluate = true;
+	elem.waitTime = 90;
+	elem.correct = ip.val == ip.correctVal;
+	elem.evaluate = ip.enabled;
 	elem.element = ip;
 }
 
@@ -211,11 +211,29 @@ function result_frameRequest()
 			{
 				$(this).addClass('resultCorrect');
 				$(this).removeClass('resultIncorrect');
+				
+				$(this.element).removeClass('chordInputIncorrect');
+				$(this.element).addClass('chordInputCorrect');
+				
+				$(this.element.notesBig).removeClass('sampleChordLIncorrect');
+				$(this.element.notesBig).addClass('sampleChordLCorrect');
+				
+				$(this.element.notesSmall).removeClass('sampleChordSIncorrect');
+				$(this.element.notesSmall).addClass('sampleChordSCorrect');
 			}
 			else
 			{
 				$(this).addClass('resultIncorrect');
 				$(this).removeClass('resultCorrect');
+				
+				$(this.element).removeClass('chordInputCorrect');
+				$(this.element).addClass('chordInputIncorrect');
+				
+				$(this.element.notesBig).removeClass('sampleChordLCorrect');
+				$(this.element.notesBig).addClass('sampleChordLIncorrect');
+				
+				$(this.element.notesSmall).removeClass('sampleChordSCorrect');
+				$(this.element.notesSmall).addClass('sampleChordSIncorrect');
 			}
 		}
 		else
@@ -226,13 +244,7 @@ function result_frameRequest()
 			
 		$(this).removeClass('resultTime');
 	}
-	
-	if (this.waitTime <= 0 && this.correct == 1)
-	{
-		$(this.element).addClass('chordInputCorrect');
-	}
-	
-	
+
 	window.requestAnimationFrame(this.frameRequest);
 }
 
@@ -303,8 +315,30 @@ $(document).ready(function(){
 	window.ondragstart = function() { return false; } 
 	
 	// Init chord input boxes.
-	for (var i = 1; i <= 24; i++)
-		ChordInputInit(document.getElementById('chordInput' + i), (i % 2) == 0, (i - 1) % 7);
+	ChordInputInit(document.getElementById('chordInput1'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput2'), true, 0, 1);
+	ChordInputInit(document.getElementById('chordInput3'), false, 2, 2);
+	ChordInputInit(document.getElementById('chordInput4'), true, 0, 6);
+	ChordInputInit(document.getElementById('chordInput5'), true, 0, 0);
+	ChordInputInit(document.getElementById('chordInput6'), false, 1, 1);
+	ChordInputInit(document.getElementById('chordInput7'), true, 0, 3);
+	ChordInputInit(document.getElementById('chordInput8'), false, 2, 2);
+	ChordInputInit(document.getElementById('chordInput9'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput10'), true, 0, 1);
+	ChordInputInit(document.getElementById('chordInput11'), true, 0, 2);
+	ChordInputInit(document.getElementById('chordInput12'), false, 6, 6);
+	ChordInputInit(document.getElementById('chordInput13'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput14'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput15'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput16'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput17'), true, 0, 1);
+	ChordInputInit(document.getElementById('chordInput18'), true, 0, 3);
+	ChordInputInit(document.getElementById('chordInput19'), false, 2, 2);
+	ChordInputInit(document.getElementById('chordInput20'), true, 0, 0);
+	ChordInputInit(document.getElementById('chordInput21'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput22'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput23'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput24'), false, 0, 0);
 	
 	// Init result box.
 	var result = document.getElementById('result');	
@@ -318,4 +352,9 @@ $(document).ready(function(){
 	
          
 	 $('#hintButton').click(hintClicked);
+	 
+	 $('#playScore').click(function()
+	 {
+		bars[scoreSegment].play();
+	 });
 });

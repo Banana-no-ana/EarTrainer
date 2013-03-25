@@ -123,6 +123,11 @@
 	background-image:url(../img/exerciseScreen/ChordInputCorrect.png);
 }
 
+.chordInputIncorrect
+{
+	background-image:url(../img/exerciseScreen/ChordInputIncorrect.png);
+}
+
 .chordInputContainer
 {	
 	position:absolute;
@@ -170,9 +175,29 @@
 	background-image:url(../img/exerciseScreen/LargeScoreNotesFixed.png);
 }
 
+.sampleChordLCorrect
+{
+	background-image:url(../img/exerciseScreen/LargeScoreNotesCorrect.png);
+}
+
+.sampleChordLIncorrect
+{
+	background-image:url(../img/exerciseScreen/LargeScoreNotesIncorrect.png);
+}
+
 .sampleChordSFixed
 {
 	background-image:url(../img/exerciseScreen/SmallScoreNotesFixed.png);
+}
+
+.sampleChordSCorrect
+{
+	background-image:url(../img/exerciseScreen/SmallScoreNotesCorrect.png);
+}
+
+.sampleChordSIncorrect
+{
+	background-image:url(../img/exerciseScreen/SmallScoreNotesIncorrect.png);
 }
 
 .trebleClef
