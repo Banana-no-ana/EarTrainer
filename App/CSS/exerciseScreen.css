@@ -72,8 +72,8 @@
 	position:absolute;
 	top:0px;
 	
-	width:5px;
-	height:222px;
+	width:3px;
+	height:60px;
 	
 	margin-left:-2.5px
 }
@@ -84,8 +84,8 @@
 	background-size:cover;
 	position:absolute;
 	
-	width:3px;
-	height:78px;
+	width:1px;
+	height:30px;
 	
 	margin-left:-2.5px
 }
@@ -173,6 +173,28 @@
 .sampleChordSFixed
 {
 	background-image:url(../img/exerciseScreen/SmallScoreNotesFixed.png);
+}
+
+.trebleClef
+{
+	background-image:url(../img/exerciseScreen/TrebleClef.png);
+	
+	position:absolute;
+	top:120px;
+	left:65px;
+	width:38px;
+	height:87px;
+}
+
+.bassClef
+{
+	background-image:url(../img/exerciseScreen/BassClef.png);
+	
+	position:absolute;
+	top:270px;
+	left:65px;
+	width:46px;
+	height:52px;
 }
 
 
