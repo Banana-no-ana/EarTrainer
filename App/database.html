@@ -17,6 +17,29 @@ and open the template in the editor.
     </head>
     <body>
         <div id="container" class="screenEnclosure">
+			<div class="searchBack">
+			Search
+			</div>
+			<form class="searchField">
+				<input type="text">
+			</form>
+		
+			<div class="searchResultDiv">
+				<div class="searchResult" style="top:10px">I</div>
+				<div class="searchResult" style="top:40px">II</div>
+				<div class="searchResult" style="top:70px">III</div>
+				<div class="searchResult" style="top:100px">IV</div>
+				<div class="searchResult" style="top:130px">V</div>
+				<div class="searchResult" style="top:160px">VI</div>
+			</div>
+				
+			<div class="backDiv ui-widget ui-tabs">
+				<ul class="backList ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all ">
+					<li id="backButton" class="backListItem ui-state-default ui-corner-top">
+						<a class="backAnchor ui-tabs-anchor" href='index.html'>Return</a>
+					</li>
+				</ul>
+			</div>
 		
 			<div class="tabContainerBack"></div>
 	
@@ -31,6 +54,29 @@ and open the template in the editor.
 				
 				<div id="tabs-1" class="tabContent">
 					<h2>Summary</h2>
+					<p class="entryText">
+						The III chord is rarely used before<br>
+						the 18th century in traditional<br>
+						western classical music. It is some-<br>
+						times used as an inbetween to<br>
+						modulate to the relative Major in<br>
+						minor mode.<br>
+						<br>
+						The III chord can also substitute as<br>
+						a softer V(Dominant), exchange<br>
+						the supertonic for the mediant<br>
+						<br>
+						It's a minor triad in major key and<br>
+						and augmented triad in minor key.<br>
+						In minor keys, sometimes the<br>
+						minor III is used instead of the<br>
+						Augmented.<br>
+					
+					</p>
+					
+					<img src="img/DatabaseScreen/Fig1.png" class="figure"></img>
+					<div class="playChord"></div>
+					<p style="position:absolute; top:26em; right:2.5em;">Play In G Major</p>
 				</div>
 				<div id="tabs-2" class="tabContent">
 					<h2>Function</h2>
@@ -42,18 +88,9 @@ and open the template in the editor.
 					<h2>Minor</h2>
 				</div>
 			</div>
-			
-			<div class="searchResultDiv">
-			
-			</div>
-				
-			<div class="backDiv ui-widget ui-tabs">
-				<ul class="backList ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all ">
-					<li id="backButton" class="backListItem ui-state-default ui-corner-top">
-						<a class="backAnchor ui-tabs-anchor" href='index.html'>Return</a>
-					</li>
-				</ul>
-			</div>
         </div>
     </body>
+	
+<script type='text/javascript' src='scripts/audio.js'></script>
+<script type='text/javascript' src='scripts/databaseScreen.js'></script>
 </html>

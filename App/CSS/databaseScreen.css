@@ -59,6 +59,36 @@
 	height:90%;
 }
 
+.searchBack
+{
+	position:absolute;
+	
+	background-color:#FFF;
+	border: 2px solid #000;
+	border-top-right-radius: 12px;
+	border-top-left-radius: 12px;
+	opacity:0.75;
+	
+	left:30px;
+	top:60px;
+	width:150px;
+	height:100px;
+	
+	text-align:center;
+	font-size:200%;
+	font-weight:bold;
+	
+}
+
+
+.searchField
+{
+	position:absolute;
+	
+	left:2em;
+	top:7em;
+}
+
 .searchResultDiv
 {
 	position:absolute;
@@ -72,6 +102,23 @@
 	top:160px;
 	width:150px;
 	height:300px;
+}
+
+.searchResult
+{
+	position:absolute;
+	
+	
+	background-color:#88A;
+	border: 2px solid #000;
+	border-radius:12px;
+	left:10%;
+	width:120px;
+	height:20px;
+	
+	text-align:center;
+	font-size:100%;
+	font-weight:bold;
 }
 
 .backDiv
@@ -108,4 +155,26 @@
 	float: left;
 	width: 75%;
 	text-align: left;
+}
+
+.entryText
+{
+	width: 75%;
+}
+
+.figure
+{
+	position: absolute;
+	right: 0.5em;
+	top: 8em;
+}
+
+.playChord
+{
+	background-image: url('../img/DatabaseScreen/PlayChord.png');
+	position: absolute;
+	right: 4em;
+	top: 21em;
+	width: 85px;
+	height: 85px;
 }

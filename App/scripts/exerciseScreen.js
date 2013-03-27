@@ -316,29 +316,25 @@ $(document).ready(function(){
 	
 	// Init chord input boxes.
 	ChordInputInit(document.getElementById('chordInput1'), false, 0, 0);
-	ChordInputInit(document.getElementById('chordInput2'), true, 0, 1);
+	ChordInputInit(document.getElementById('chordInput2'), true, 0, 4);
 	ChordInputInit(document.getElementById('chordInput3'), false, 2, 2);
 	ChordInputInit(document.getElementById('chordInput4'), true, 0, 6);
-	ChordInputInit(document.getElementById('chordInput5'), true, 0, 0);
-	ChordInputInit(document.getElementById('chordInput6'), false, 1, 1);
+	ChordInputInit(document.getElementById('chordInput5'), true, 0, 3);
+	ChordInputInit(document.getElementById('chordInput6'), false, 4, 4);
 	ChordInputInit(document.getElementById('chordInput7'), true, 0, 3);
-	ChordInputInit(document.getElementById('chordInput8'), false, 2, 2);
-	ChordInputInit(document.getElementById('chordInput9'), false, 0, 0);
-	ChordInputInit(document.getElementById('chordInput10'), true, 0, 1);
+	ChordInputInit(document.getElementById('chordInput8'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput9'), false, 3, 3);
+	ChordInputInit(document.getElementById('chordInput10'), true, 0, 4);
 	ChordInputInit(document.getElementById('chordInput11'), true, 0, 2);
-	ChordInputInit(document.getElementById('chordInput12'), false, 6, 6);
-	ChordInputInit(document.getElementById('chordInput13'), false, 0, 0);
-	ChordInputInit(document.getElementById('chordInput14'), false, 0, 0);
-	ChordInputInit(document.getElementById('chordInput15'), false, 0, 0);
-	ChordInputInit(document.getElementById('chordInput16'), false, 0, 0);
+	ChordInputInit(document.getElementById('chordInput12'), false, 4, 4);
+	ChordInputInit(document.getElementById('chordInput13'), true, 0, 0);
+	ChordInputInit(document.getElementById('chordInput14'), true, 0, 4);
+	ChordInputInit(document.getElementById('chordInput15'), false, 2, 2);
+	ChordInputInit(document.getElementById('chordInput16'), false, 6, 6);
 	ChordInputInit(document.getElementById('chordInput17'), true, 0, 1);
-	ChordInputInit(document.getElementById('chordInput18'), true, 0, 3);
+	ChordInputInit(document.getElementById('chordInput18'), true, 0, 4);
 	ChordInputInit(document.getElementById('chordInput19'), false, 2, 2);
 	ChordInputInit(document.getElementById('chordInput20'), true, 0, 0);
-	ChordInputInit(document.getElementById('chordInput21'), false, 0, 0);
-	ChordInputInit(document.getElementById('chordInput22'), false, 0, 0);
-	ChordInputInit(document.getElementById('chordInput23'), false, 0, 0);
-	ChordInputInit(document.getElementById('chordInput24'), false, 0, 0);
 	
 	// Init result box.
 	var result = document.getElementById('result');	

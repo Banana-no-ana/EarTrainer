@@ -12,6 +12,10 @@
    //          window.location = 'index.html';
    //})
    
+   $('.playChord').click(function() {
+		chords[2].cloneNode(true).play();
+   });
+   
    $('#backButton').hover(function() {
 	   $(this).addClass('ui-state-hover');
 	 }, function() {
